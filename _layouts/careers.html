@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+
+<div class="careers-page container">
+
+  <div class="page-intro">
+    <h1>Flock with us.</h1>
+  </div>    
+
+  <div class="career-list">
+    {% for career in site.careers %}
+      <a class="position" href="{{ career.url | relative_url }}">
+        <h2>{{ career.title | escape }}</h2>
+        <p>{{ career.desc | escape }}</p>
+      </a>
+    {% endfor %}
+  </div>
+  </div>

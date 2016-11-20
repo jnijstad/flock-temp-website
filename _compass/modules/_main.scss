@@ -1,0 +1,495 @@
+.container {
+  @include container;
+  // background-color: blue;
+}
+
+
+.work-page {
+  #main-menu {
+    a {
+      color: white;
+    }
+  }
+  .branding {
+    .logo-normal {
+      display: none;
+    }
+    .logo-white {
+      display: block;
+    }
+  }
+}
+
+.fixed-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 50px;
+  z-index: 99;
+  // &:after {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 5px;
+  //   content: "";
+  //   background-color: $primary-color;
+  // }
+  // background-color: rgba(white, 0.4);
+  @include susy-breakpoint($mobile, $mobile-grid){
+    background-color: #fff;
+    position: absolute;
+  }
+}
+
+.branding {
+  float: left;
+  @include leader(0.25);
+  @include breakpoint($mobile){
+   float: none;
+   text-align: center;
+  }
+  .logo-white {
+    display: none;
+  }
+}
+
+#main-menu {
+  float: right;
+  text-align: right;
+  font-weight: $medium-weight;
+  // text-shadow: 0 0 1px rgba(white, 1);
+  @include breakpoint($mobile){
+    @include leader(2);
+   float: none;
+   text-align: center;
+  }
+  ul {
+    margin:0;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    color: $text-color;
+    display: block;
+    text-decoration: none;
+    padding: 13px 10px;
+    @include adjust-font-size-to(14px, 0.8);
+    &.active {
+      color: $primary-color;
+    }
+  }
+}
+
+
+.page-content {
+  // @include leader(3);
+  @include trailer(3);  
+  @include breakpoint($mobile){
+    @include leader(10);
+  }
+  ul {
+    list-style-position: inside;
+  }
+  h3 {
+    @include trailer(0.25);
+  }
+}
+
+.cover {
+  display: block;
+  // @include gallery(1 of 2 0);
+  text-align: left;
+  text-decoration: none;
+  background-size: cover;
+  color: white;
+  min-height: 500px;
+  height: 100vh;
+  position: relative;
+  transition-duration: 0.4s;
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  .description {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    width: 100%;
+  }
+  h1 {
+    @include adjust-font-size-to(48px);
+    width: span(7);
+    @include trailer(0.5);
+  }
+  p {
+    width: span(7);
+    @include adjust-font-size-to(19px);    
+    font-weight: 300;
+  }
+  .view {
+    @include adjust-font-size-to(19px);    
+  }
+}
+
+
+.site-intro {
+  @include leader(9);
+  @include trailer(10);
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint($mobile){
+    @include trailer(4);
+  }
+  h1 {
+    margin: 0 auto;    
+    @include adjust-font-size-to(39px, 2);
+    @include trailer(1);
+    color: $primary-color;
+    font-weight: $normal-weight;
+  }
+  p {
+    @include adjust-font-size-to(22px, 1.5);
+    margin: 0 auto;
+  }
+  .view {
+    @include leader(1);
+    text-decoration: none;
+    display: block;
+    @include adjust-font-size-to(19px);    
+  }
+}
+
+.page-intro {
+  @include leader(11);      
+  @include trailer(9);  
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: span(11);
+  @include breakpoint($mobile){
+    @include trailer(4);
+  }
+  h1 {
+    @include adjust-font-size-to(34px, 2);
+    @include trailer(1);
+    color: $primary-color;
+    font-weight: $normal-weight;
+    @include breakpoint($mobile){
+      width: span(11)
+    }
+  }
+  p {
+    @include adjust-font-size-to(24px, 1.5);
+    @include breakpoint($mobile){
+      width: span(12)
+    }
+  }
+}
+.page-copy {
+  width: span(10);
+  @include prefix(0.5);
+}
+
+a.button {
+  background-color: $primary-color;
+  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.projects {
+  .project {
+    display: block;
+    background-color: red;
+    // @include gallery(1 of 2 0);
+    text-align: center;
+    text-decoration: none;
+    background-size: cover;
+    color: white;
+    min-height: 500px;
+    height: 100vh;
+    position: relative;
+    transition-duration: 0.4s;
+    &:hover {
+      opacity: 0.9;
+    }
+    .desc {
+      z-index: 2;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    // overlay
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      content: "";
+      background-color: rgba(black, 0.6);
+      z-index: 1;
+    }
+  }
+}
+
+.flock-section {
+  @include full;
+  @include trailer(5);
+  @include susy-breakpoint($mobile, $mobile-grid){
+    @include trailer(2);
+  }
+}
+
+.things-we-do {
+  .col {
+    @include breakpoint($desktop){
+      @include gallery(3 of 9);
+    }
+  }
+}
+
+.first-line {
+  font-weight: $medium-weight;
+  @include adjust-font-size-to(16px);
+  @include trailer(0.5);
+  display: block;
+  width: span(4 of 9);
+  // color: $black;
+  color: $primary-color;
+  text-transform: uppercase;
+  @include susy-breakpoint($mobile, $mobile-grid){
+    // @include full;
+    width: span(4)
+  }
+}
+
+.story {
+  p {
+    column-count: 2;
+    @include susy-breakpoint($mobile, $mobile-grid){
+      // @include full;
+      width: span(4);
+      column-count: 1;
+    }
+  }
+}
+
+.awesome-clients {
+  .col {
+    @include trailer(1);
+    @include breakpoint($desktop){
+      @include gallery(2.5 of 10);
+    }
+    @include susy-breakpoint($mobile, $mobile-grid){
+      @include gallery(2);
+      @include trailer(2);
+      text-align: center;
+    }
+  }
+  a {
+    opacity: 1;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  img {
+    max-width: 70%;
+  }
+}
+
+.single-project {
+  .page-intro {
+    @include leader(9);      
+    @include trailer(9);  
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: span(10);
+  }
+
+  .project-intro {
+    @include leader(5);          
+    .desc {
+      @include span(first 7);
+      p {
+        @include adjust-font-size-to(19px, 1.25)
+      }
+    }
+    .side {
+      @include span(last 2);      
+      .logo {
+        @include trailer(2);
+      }
+      ul {
+        @include trailer(1);
+        list-style: none;
+      }
+      li {
+
+      }
+      h2 {
+        color: $black;
+        @include adjust-font-size-to(18px);
+        @include trailer(0.25);
+      }
+      .button {
+        @include leader(1);
+      }
+    }
+  } 
+
+  .project-desc {
+    @include leader(4);
+    width: span(9);
+  }
+
+  .post-content {
+    h3 {
+      @include adjust-font-size-to(32px);      
+      color: $black;
+      font-weight: 400;
+      @include trailer(1);      
+    }
+    p {
+      @include adjust-font-size-to(19px, 1.25);
+      font-weight: 400;
+      @include trailer(4);
+      color: lighten($black, 10%);
+    }
+  }
+  
+}
+
+.about-page {
+  .page-intro {
+    color: $primary-color;
+    font-weight: $normal-weight;
+    .lighter {
+      color: lighten($primary-color, 10%);
+    }
+  }
+}
+
+.careers-page {
+  .page-intro {
+    color: $primary-color;
+    // text-align: center;
+  }
+}
+
+.career-single {
+  .page-intro {
+    @include leader(9);    
+    @include trailer(1)
+  }
+  a.button {
+    @include leader(1);    
+  }
+}
+
+.career-list {
+  width: span(11);  
+  margin: 0 auto;  
+  .position {
+    @include trailer(2);
+    @include gallery(6);
+    text-decoration: none;
+    h2 {
+      color: $black;
+      font-weight: 400;
+      @include trailer(0.5);
+      @include adjust-font-size-to(21px);      
+    }
+    p {
+      color: $text-color;
+      font-weight: $normal-weight;
+    }
+  }
+}
+
+
+
+.contact-page, .careers-page {
+  .page-intro {
+    @include trailer(4);
+  }
+}
+
+.contact-details {
+  width: span(11);
+  margin: 0 auto;
+  .column {
+    @include breakpoint($desktop){    
+      @include gallery(6)
+    }
+    @include adjust-font-size-to(19px);
+    @include trailer(1);
+    color: $black;
+    font-weight: $medium-weight;
+    .meta {
+      @include adjust-font-size-to(16px);
+      display: block;
+      color: $text-color;
+      font-weight: $normal-weight;      
+    }
+  }
+}
+
+
+main.work-page {
+  #footer-nav {
+    @include leader(3);
+  }
+}
+
+#footer-nav {
+  @include leader(8);  
+  width: span(11); 
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint($mobile){
+    width: span(10);
+    @include leader(3);      
+  }
+  .column {
+    @include breakpoint($desktop){
+      @include gallery(3);
+    }
+    @include breakpoint($mobile){
+      @include gallery(6);
+      @include trailer(1);
+    }
+    h2 {
+      color: lighten($text-color, 30%);
+      text-transform: uppercase;
+      font-weight: $medium-weight;
+      letter-spacing: 0.15rem;
+      @include adjust-font-size-to(12px);      
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: $black;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.footer {
+  font-weight: $medium-weight;
+  @include adjust-font-size-to(11px);
+  @include full;
+  @include trailer(1);
+  @include susy-breakpoint($mobile, $mobile-grid){
+    text-align: center;
+    @include leader(1);
+  }
+
+}

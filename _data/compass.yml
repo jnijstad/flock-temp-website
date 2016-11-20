@@ -1,0 +1,11 @@
+---
+require:
+- jekyll-compass
+- susy
+- breakpoint
+project_path: "/Users/jnijstad/Sites/flock-jekyll/flock"
+http_path: "/"
+css_dir: css
+sass_dir: _compass
+images_dir: assets/img
+javascripts_dir: javascripts

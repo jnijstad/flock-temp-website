@@ -1,0 +1,88 @@
+// Type
+// ====
+
+%body {
+  -webkit-font-smoothing: antialiased;
+  // @include adjust-font-size-to(15px);
+  strong {
+    font-weight: bold;
+  }
+  em {
+    font-style: italic;
+  }
+
+  p, ul, ol, pre { @include trailer(1); }
+  p:empty { display: none; }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  tt, code, pre {
+    @extend %code;
+    // @include font-size(small);
+  }
+
+  tt, code {
+    display: inline-block;
+    // color: color(darker);
+  }
+
+  pre {
+    overflow-x: auto;
+    padding: rhythm(.5);
+    border-left: rhythm(.25) solid black;
+    background: red;
+
+    @include breakpoint(50em) {
+      margin-left: rhythm(-.75);
+      margin-right: rhythm(-.75);
+    }
+  }
+
+  blockquote {
+    @include trailer(2);
+    padding: 0 rhythm(1);
+    border-left: 1px rhythm(.25) solid;
+  }
+
+  ul, ol {
+    margin-left: rhythm(1);
+    @include breakpoint(48em) { margin-left: 0; }
+    ul, ol { margin-left: rhythm(1); }
+  }
+
+  blockquote {
+    @include breakpoint(50em) { margin-left: rhythm(-1); }
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: top;
+  }
+
+  .video {
+    // @include fluid-ratio;
+    border: 1px solid color(lighter);
+  }
+  .emoji {
+    @include adjust-font-size-to(19px, 1);
+    position: relative;
+    // top: rhythm(0.05);
+  }
+
+  .quote-body {
+    // @include font-size(xlarge);
+    @include trailer(.5);
+    // @include wrap-content;
+    text-indent: -0.35em;
+  }
+
+  .quote-source {
+    // @include font-size(small);
+    font-style: italic;
+  }
+}
+
+%type {
+  @extend %headings;
+  @extend %body;
+}

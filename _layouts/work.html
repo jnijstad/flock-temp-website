@@ -1,0 +1,40 @@
+---
+layout: default
+---
+<article class="post single-project">
+
+  <div class="case-study cover" style="background-image:url({{ site.url }}/assets/img/{{ page.cover }})">
+      <div class="description">    
+        <div class="container">
+            <h1>{{ page.title | escape }}.</h1>
+            <p>{{ page.description }}</p>
+        </div>
+      </div>
+  </div>
+
+  <div class="post-content" itemprop="articleBody">
+    <div class="project-intro">
+      <div class="container">
+        <div class="desc">
+          <p>{{ page.intro }}</p>
+        </div>
+        <div class="side">
+          <div class="logo">
+            <img src="{{ site.url }}/assets/img/{{ page.logo }}" alt="">
+          </div>
+          <div class="services">
+            <h2>What We Did</h2>
+            <ul>
+              <li>Test</li>
+              <li>Test</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <a href="{{ page.view_url }}" target="_blank" class="button">View</a>
+        </div>
+      </div>
+    </div>
+    {{ content }}
+  </div>
+</article>

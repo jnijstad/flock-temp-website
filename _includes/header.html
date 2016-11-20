@@ -1,0 +1,21 @@
+<div class="fixed-header">
+  <div class="branding">
+    <a href="{{ "/" | relative_url}}">
+      <img class="logo-normal" width="130" src="{{ site.url }}/assets/img/flock-logo.svg" alt="">
+      <img class="logo-white" width="130" src="{{ site.url }}/assets/img/flock-logo-white.svg" alt="">    
+    </a>
+  </div>
+  <!-- /.branding -->
+  <nav id="main-menu">
+    <ul>
+      {% assign sorted_pages = site.pages | sort:"order" %}
+      {% for p in sorted_pages %}
+        <li>
+          <a {% if p.url == page.url %} class="active" {% endif %} href="{{ p.url | relative_url }}">
+          {{ p.title | escape }}
+          </a>
+        </li>        
+      {% endfor %}
+    </ul>
+  </nav>
+</div>

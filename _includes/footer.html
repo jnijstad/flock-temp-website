@@ -1,0 +1,27 @@
+  <div class="container">
+    <nav id="footer-nav">
+    <div class="column">
+      <h2>Visit us</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem sint.
+      </p>
+    </div>
+    <div class="column">
+      <h2>Contact us</h2>
+      <a href="">info@flock.company</a>
+    </div>
+    <div class="column">
+      <h2>Follow Us</h2>
+      <a href="">instagram</a>
+      <a href="">facebook</a>
+    </div>
+    <div class="column">
+      <h2>Careers</h2>
+      {% for career in site.careers %}
+        <a class="position" href="{{ career.url | relative_url }}">
+        {{ career.title | escape }}
+        </a>
+      {% endfor %}
+    </div>
+    </nav>
+  </div>

@@ -1,0 +1,17 @@
+// Root
+// ====
+
+// @include fonts;
+@include establish-baseline;
+@include border-box-sizing;
+// @include icon-placeholder(susy);
+
+html {
+  @extend %sans;
+  background: white;
+  @extend %type;
+  color: $text-color;
+  font-weight: $normal-weight;
+}
+
+// @include data-icons;

@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% for work in site.work %}  
+<div class="case-study cover" style="background-image:url({{ site.url }}/assets/img/{{ work.cover }})">
+    <a href="{{ work.url | relative_url }}">
+    <div class="description">    
+      <div class="container">
+          <h1>{{ work.title | escape }}.</h1>
+          <p>{{ work.description }}</p>
+          <span class="view">View Case Study</span>
+      </div>
+    </div>
+    </a>
+</div>
+{% endfor %}  
+
+
+<div class="container">
+  <section class="site-intro">
+    <header><h1>We are Flock.</h1></header>
+    <p> A new breed of agency driven by innovation. Flock builds innovative solutions to help consumers connect closer to brands through better products, services and all other kinds of experiences.</p>
+    <a href="{{ site.url }}/about/" class="view">Read More</a>
+  </section>
+  <!-- /.site-intro -->
+</div>

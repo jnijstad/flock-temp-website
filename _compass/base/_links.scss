@@ -1,0 +1,14 @@
+%link {
+  font-weight: $medium-weight;
+  &:link, &:visited {
+    // @include transition(color 150ms);
+    color: $link-color;
+  }
+  &:hover, &:focus, &:active {
+   color: darken($link-color, 10%);
+ }
+}
+
+a {
+  @extend %link;
+}

@@ -1,0 +1,48 @@
+// Headings
+// ========
+
+%h1 {
+  // @include font-size(medium);
+  // @include transition(all 200ms);
+  // @include padding-trailer(1);
+  // color: $heading-color;
+  font-weight: $bold-weight;
+  @include adjust-font-size-to(18px);
+}
+
+%h2, %h3, %h4 {
+  // color: $heading-color;
+  color: $primary-color;
+  // @include trailer(.5);
+  position: relative;
+  // text-transform: uppercase;
+  font-weight: $bold-weight;
+}
+
+%h2 {
+  font-weight: $medium-weight;
+  @include adjust-font-size-to(15px);
+}
+
+%h3 {
+  // text-transform: uppercase;
+  font-weight: $medium-weight;
+  @include adjust-font-size-to(16px);
+}
+
+%h4 {
+  font-style: italic;
+  &:before {
+    content: ' » ';
+    position: absolute;
+    right: 100%;
+    margin-right: .4em;
+  }
+}
+
+%headings {
+  h1 { @extend %h1; }
+  h2 { @extend %h2; }
+  h3 { @extend %h3; }
+  h4 { @extend %h4; }
+}

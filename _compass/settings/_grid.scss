@@ -1,0 +1,28 @@
+// Grid Settings
+// =============
+
+$susy: (
+  container: 62em,
+  columns: 12,
+  gutters: .20,
+  column-width: rhythm(3),
+  gutter-position: after,
+  debug: (
+    image: hide,
+    toggle: top right,
+    output: overlay
+  )
+);
+
+$mobile-grid: (
+  container: 60em,
+  columns: 4,
+  gutters: 1/2,
+  column-width: rhythm(3),
+  gutter-position: inside,
+  debug: (
+    image: hide,
+    toggle: top right,
+    output: overlay
+  )
+);
