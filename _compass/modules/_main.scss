@@ -3,12 +3,22 @@
   // background-color: blue;
 }
 
+iframe {
+  max-width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
 
 .work-page {
   #main-menu {
     a {
       color: white;
     }
+  }
+  .menu-icon {
+    color: white;      
   }
   .branding {
     .logo-normal {
@@ -27,19 +37,31 @@
   width: 100%;
   padding: 40px 50px;
   z-index: 99;
-  // &:after {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 5px;
-  //   content: "";
-  //   background-color: $primary-color;
-  // }
-  // background-color: rgba(white, 0.4);
-  @include susy-breakpoint($mobile, $mobile-grid){
-    background-color: #fff;
+  @include susy-breakpoint($mobile){
+    // background-color: #fff;
     position: absolute;
+    padding: 0;
+    @include leader(1);
+    width: 100%;
+    @include prefix(1);
+  }
+  .menu-icon {
+    position: absolute;
+    top: 8px;
+    right: span(1);
+    z-index: 99;
+    width: 44px;
+    text-align: right;
+    @include breakpoint($desktop){
+      display: none;
+    }
+    .open-icon, .close-icon {
+      position: absolute;
+      right: 0;
+    }
+    .close-icon {
+      display: none;
+    }
   }
 }
 
@@ -47,11 +69,30 @@
   float: left;
   @include leader(0.25);
   @include breakpoint($mobile){
-   float: none;
-   text-align: center;
+    width: 45%;
   }
+
   .logo-white {
     display: none;
+  }
+}
+
+body.menu-active {
+  #main-menu {
+    @include breakpoint($mobile){
+      display: block;
+    }
+  }
+  .menu-icon {
+    position: fixed;
+    top: 30px;
+    color: white !important;    
+    .open-icon {
+      display: none;
+    }
+    .close-icon {
+      display: block;
+    }
   }
 }
 
@@ -61,15 +102,27 @@
   font-weight: $medium-weight;
   // text-shadow: 0 0 1px rgba(white, 1);
   @include breakpoint($mobile){
-    @include leader(2);
-   float: none;
-   text-align: center;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($primary-color, 0.98);
   }
   ul {
     margin:0;
+    @include breakpoint($mobile){
+      @include leader(2);
+    }
+
   }
   li {
     display: inline-block;
+    @include breakpoint($mobile){
+      display: block;
+    }
+
   }
   a {
     color: $text-color;
@@ -79,7 +132,19 @@
     @include adjust-font-size-to(14px, 0.8);
     &.active {
       color: $primary-color;
+      @include breakpoint($mobile){
+        color: white;
+      }
+
     }
+    @include breakpoint($mobile){
+      text-align: left;
+      @include prefix(1);
+      @include adjust-font-size-to(28px, 1.5);
+      font-weight: 400;
+      color: white !important;
+    }
+
   }
 }
 
@@ -88,7 +153,7 @@
   // @include leader(3);
   @include trailer(3);  
   @include breakpoint($mobile){
-    @include leader(10);
+    // @include leader(10);
   }
   ul {
     list-style-position: inside;
@@ -118,19 +183,35 @@
     bottom: 120px;
     left: 0;
     width: 100%;
+    @include susy-breakpoint($mobile){
+      bottom: 40px;      
+    }
+
   }
   h1 {
     @include adjust-font-size-to(48px);
     width: span(7);
     @include trailer(0.5);
+    @include susy-breakpoint($mobile){
+      width: span(10);    
+      @include prefix(1);
+    }
+
   }
   p {
     width: span(7);
     @include adjust-font-size-to(19px);    
     font-weight: 300;
+    @include susy-breakpoint($mobile){
+      width: span(10);    
+      @include prefix(1);
+    }
   }
   .view {
-    @include adjust-font-size-to(19px);    
+    @include adjust-font-size-to(19px);   
+    @include susy-breakpoint($mobile){
+      @include prefix(1);
+    } 
   }
 }
 
@@ -142,6 +223,9 @@
   margin-right: auto;
   @include breakpoint($mobile){
     @include trailer(4);
+    @include leader(4);    
+    @include prefix(1);
+    @include suffix(1);
   }
   h1 {
     margin: 0 auto;    
@@ -171,15 +255,14 @@
   width: span(11);
   @include breakpoint($mobile){
     @include trailer(4);
+    width: span(10);    
+    // @include prefix(1);
   }
   h1 {
     @include adjust-font-size-to(34px, 2);
     @include trailer(1);
     color: $primary-color;
     font-weight: $normal-weight;
-    @include breakpoint($mobile){
-      width: span(11)
-    }
   }
   p {
     @include adjust-font-size-to(24px, 1.5);
@@ -191,6 +274,13 @@
 .page-copy {
   width: span(10);
   @include prefix(0.5);
+  @include susy-breakpoint($mobile){
+    // width: span(10);    
+    @include prefix(1);
+  }
+  ul {
+    margin-left: 0;
+  }
 }
 
 a.button {
@@ -199,6 +289,10 @@ a.button {
   display: inline-block;
   padding: 10px 20px;
   text-decoration: none;
+  @include susy-breakpoint($mobile){
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .projects {
@@ -314,20 +408,44 @@ a.button {
 
   .project-intro {
     @include leader(5);          
+    @include susy-breakpoint($mobile){
+      @include leader(2);                        
+    }
     .desc {
       @include span(first 7);
+      @include susy-breakpoint($mobile){
+        width: span(10);    
+        @include prefix(1);
+      }
       p {
-        @include adjust-font-size-to(19px, 1.25)
+        @include adjust-font-size-to(19px, 1.25);
+        @include susy-breakpoint($mobile){        
+          @include trailer(1);
+        }
       }
     }
     .side {
-      @include span(last 2);      
+      @include span(last 2);   
+      @include susy-breakpoint($mobile){
+        width: span(10);    
+        @include prefix(1);
+        float: none;
+        @include trailer(2);
+      }   
       .logo {
         @include trailer(2);
+        width: 50%;
+        @include susy-breakpoint($mobile){
+          display: none;          
+        }
       }
       ul {
         @include trailer(1);
         list-style: none;
+        @include susy-breakpoint($mobile){
+          margin: 0;
+        }
+
       }
       li {
 
@@ -339,6 +457,11 @@ a.button {
       }
       .button {
         @include leader(1);
+        @include susy-breakpoint($mobile){
+          width: 100%;
+          text-align: center;
+        }
+
       }
     }
   } 
@@ -349,6 +472,7 @@ a.button {
   }
 
   .post-content {
+
     h3 {
       @include adjust-font-size-to(32px);      
       color: $black;
@@ -395,9 +519,14 @@ a.button {
 .career-list {
   width: span(11);  
   margin: 0 auto;  
+  @include susy-breakpoint($mobile){
+    width: span(10);
+  }
   .position {
+    @include breakpoint($desktop){
+      @include gallery(6);
+    }
     @include trailer(2);
-    @include gallery(6);
     text-decoration: none;
     h2 {
       color: $black;
@@ -423,6 +552,10 @@ a.button {
 .contact-details {
   width: span(11);
   margin: 0 auto;
+  @include susy-breakpoint($mobile){
+      width: span(10);    
+      // @include prefix(1);
+  }
   .column {
     @include breakpoint($desktop){    
       @include gallery(6)

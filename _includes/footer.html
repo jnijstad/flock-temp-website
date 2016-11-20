@@ -2,18 +2,16 @@
     <nav id="footer-nav">
     <div class="column">
       <h2>Visit us</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem sint.
-      </p>
+      <p>{{ site.address | escape }}</p>
     </div>
     <div class="column">
       <h2>Contact us</h2>
-      <a href="">info@flock.company</a>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     </div>
     <div class="column">
       <h2>Follow Us</h2>
-      <a href="">instagram</a>
-      <a href="">facebook</a>
+      <a href="https://instagram.com/{{ site.instagram_username | escape }}">Instagram</a>
+      <a href="https://instagram.com/{{ site.facebook_username | escape }}">Facebook</a>
     </div>
     <div class="column">
       <h2>Careers</h2>

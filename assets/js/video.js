@@ -1,5 +1,4 @@
 // By Chris Coyier & tweaked by Mathias Bynens
-console.log("test");
 $(function() {
 
   // Find all YouTube videos
